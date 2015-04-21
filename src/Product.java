@@ -12,7 +12,35 @@ public class Product {
 		this.price=price;		
 	}
 	
+	public void setProductNumber(int productNumber)
+	{
+		this.productNumber=productNumber;
+	}
 	
+	public int getProductNumber()
+	{
+		return this.productNumber;
+	}
+	
+	public void setProductDesc(String productDesc)
+	{
+		this.productDesc=productDesc;
+	}
+	
+	public String getProductDesc()
+	{
+		return this.productDesc;
+	}
+	
+	public void setPrice(double price)
+	{
+		this.price=price;	
+	}
+	
+	public double getPrice()
+	{
+		return this.price;
+	}
 	
 	public void printProduct()
 	{
