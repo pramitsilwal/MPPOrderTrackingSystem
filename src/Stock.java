@@ -31,6 +31,10 @@ public class Stock {
 		return stock.containsKey(p);
 	}
 	
+	public HashMap <Product, Integer> getStock(){
+		return this.stock;
+	}
+	
 	public void viewStock()
 	{
 		System.out.println("==================Stock=========================");
@@ -47,5 +51,14 @@ public class Stock {
 		System.out.println("===================End==========================");
 	}
 	
+	public void viewBrief(){
+		for (Product p:stock.keySet())
+		{
+			
+			System.out.println(p.getProductBrief()+" Quantity "+stock.get(p));
+			//System.out.println();
+			
+		}
+	}
 }
 

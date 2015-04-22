@@ -68,6 +68,8 @@ public abstract class Customer {
 		this.billingAddress = billingAddress;
 	}
 	
-	public abstract void makeOrder(HashMap<Product, Integer> products, OrderType type);
+	public abstract Order makeOrder(HashMap<Product, Integer> products, OrderType type);
 	public abstract void printCustomer();
+	public abstract void printBrief();
+	public abstract void printOrderList();
 }

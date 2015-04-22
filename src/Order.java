@@ -49,10 +49,10 @@ public class Order {
 	
 	public void printOrder()
 	{
-		System.out.println("Order Type:"+this.orderType
-				+"Status:"+this.status
-				+"Total:"+this.orderTotal
-				+"Discount:"+this.discount);
+		System.out.println("Order Type: "+this.orderType
+				+" Status: "+this.status
+				+" Total: "+this.orderTotal
+				+" Discount: "+this.discount);
 		System.out.println("Items");
 		for(OrderProduct op:items)
 		{

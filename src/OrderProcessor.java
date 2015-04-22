@@ -1,4 +1,5 @@
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 
@@ -8,38 +9,41 @@ public class OrderProcessor {
 	public OrderProcessor(Stock stock){
 		companyStock = stock;
 	}
-	public void placeOrder(HashMap<Product, Integer> products, Customer customer, OrderType type ) {
+	public Order placeOrder(HashMap<Product, Integer> products, Customer customer, OrderType type ) {
 		if(customer instanceof PersonalCustomer){
-			placeOrderByType(products, customer, true);
+			return placeOrderByType(products, customer, true);
 		}
 		else if (customer instanceof CorporateCustomer){
 			switch(customer.getCreditRating()){
 			case POOR :
-				placeOrderByType(products, customer, true);
-				break;
+				return placeOrderByType(products, customer, true);
+				//break;
 			case GOOD:
 				if(type == OrderType.PREPAID){
-					placeOrderByType(products, customer, true);
+					return placeOrderByType(products, customer, true);
 				}
 				else {
-					placeCreditOrder(products, customer);
+				    return	placeCreditOrder(products, customer);
 				}
-				break;
+				//break;
 			case EXCELLENT :
 				if(type == OrderType.PREPAID){
-					placeOrderByType(products, customer, true);
+					return placeOrderByType(products, customer, true);
 				}
 				else {
-					placeCreditOrder(products, customer);
+					return placeCreditOrder(products, customer);
 				}
 				
-				break;
+				//break;
+			
+			
 			}
 			
 		}
+		return null;
 	}
 	
-	private void placeCreditOrder(HashMap<Product, Integer> products, Customer customer){
+	private Order placeCreditOrder(HashMap<Product, Integer> products, Customer customer){
 		//Credit order can be placed only by corporate customer, check if customer is eligible based on credit limit
 		double totalOrderPrice = 0.0;
 		for (Product p : products.keySet()){
@@ -47,14 +51,14 @@ public class OrderProcessor {
 		}
 		if (((CorporateCustomer) customer).getCreditLimit() < totalOrderPrice){
 			
-			placeOrderByType(products, customer, true);
+			return placeOrderByType(products, customer, true);
 		}
 		else{
-			placeOrderByType(products, customer, false);
+			return placeOrderByType(products, customer, false);
 		}
 	}
 	
-	private void placeOrderByType(HashMap<Product, Integer> products, Customer customer, boolean prepaid){
+	private Order placeOrderByType(HashMap<Product, Integer> products, Customer customer, boolean prepaid){
 		Order customerOrder;
 		if(prepaid){
 			customerOrder = new Order(OrderType.PREPAID);
@@ -66,8 +70,9 @@ public class OrderProcessor {
 		for (Product product: products.keySet()){
 			if(companyStock.isProductListed(product)){
 				int quantity = products.get(product);
-				boolean willProductShip = companyStock.removeProduct(product,quantity );				
-				OrderProduct op = new OrderProduct(product, willProductShip, Calendar.getInstance().getTime(), quantity, (product.getPrice() * (double) quantity));
+				boolean willProductShip = companyStock.removeProduct(product,quantity );	
+				Date shippingDate = willProductShip ? Calendar.getInstance().getTime() : null;
+				OrderProduct op = new OrderProduct(product, willProductShip, shippingDate, quantity, (product.getPrice() * (double) quantity));
 				customer.addPoint(product.getPoint());
 				customerOrder.addProduct(op);
 			}
@@ -85,6 +90,7 @@ public class OrderProcessor {
 				((CorporateCustomer) customer).addMonthlyBill(Calendar.getInstance().getTime().getMonth(), customerOrder);
 			}
 		}
+		return customerOrder;
 	}
 	
 	private void shipOrder(Order order, Customer customer){

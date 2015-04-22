@@ -52,6 +52,15 @@ public class Product {
 				+ "\nCategory: "+ this.category);
 	}
 	
+	public String getProductBrief()
+	{
+		return("Product Number :"+ this.productNumber
+				+" Product Description :"+this.productDesc
+				+" Price :$"+this.price 
+				+ " Category: "+ this.category);
+	}
+	
+	
 	public double getPoint(){
 		switch(category)
 		{

@@ -20,6 +20,12 @@ public class CorporateCustomer extends Customer {
 			invoiceHistory.put(month, new MonthlyBill(2015,month, orderList,this.entityName));
 		}
 	}
+	
+	public HashMap getInvoice()
+	{
+		return this.invoiceHistory;
+	}
+	
 	public CorporateCustomer(int customerId,String entityName, String contactName, String email, String contactNumber, String shippingAddress, String billingAddress, OrderProcessor orderProcessor, CreditRating rating, double creditLimit){
 		this.customerId=customerId;
 		this.entityName = entityName;
@@ -35,8 +41,8 @@ public class CorporateCustomer extends Customer {
 	}
 	
 	@Override
-	public void makeOrder(HashMap<Product, Integer> products, OrderType type) {		
-		orderProcessor.placeOrder(products, this, type);			
+	public Order makeOrder(HashMap<Product, Integer> products, OrderType type) {		
+		return orderProcessor.placeOrder(products, this, type);			
 		}
 	@Override
 	protected String getName() {
@@ -53,10 +59,26 @@ public class CorporateCustomer extends Customer {
 				+"\nContact:"+this.contactNumber
 				+"\nShipping Address:"+this.shippingAddress
 				+"\nBilling Address:"+this.billingAddress
-				+"\nOrder Processor:"+this.orderProcessor
+				//+"\nOrder Processor:"+this.orderProcessor
 				+"\nCredit Rating:"+this.creditRating
-				+"\nCredit Limit:"+this.creditLimit);
+				+"\nCredit Limit:"+this.creditLimit
+				+"\nPoints:"+this.points)
+				;
 		
+	}
+	@Override
+	public void printBrief() {
+		System.out.println("ID: " + this.customerId + "Customer Name: "+ this.entityName + " Type: CORPORATE");
+		
+	}
+	
+	@Override
+	public  void printOrderList()
+	{
+		for(Order o:orderList)
+		{
+			o.printOrder();
+		}
 	}
 	
 	

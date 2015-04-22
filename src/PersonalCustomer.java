@@ -19,8 +19,8 @@ public class PersonalCustomer extends Customer {
 	
 
 	@Override
-	public void makeOrder(HashMap<Product, Integer> products, OrderType type) {
-		orderProcessor.placeOrder(products, this, type);
+	public Order makeOrder(HashMap<Product, Integer> products, OrderType type) {
+		return orderProcessor.placeOrder(products, this, type);
 	}
 
 
@@ -40,8 +40,25 @@ public class PersonalCustomer extends Customer {
 				+"\nContact:"+this.contactNumber
 				+"\nShipping Address:"+this.shippingAddress
 				+"\nBilling Address:"+this.billingAddress
-				+"\nOrder Processor:"+this.orderProcessor
+				//+"\nOrder Processor:"+this.orderProcessor
 				+"\nCredit Rating:"+this.creditRating);
 	}
+	
+	@Override
+	public void printBrief() {
+		System.out.println("ID: " + this.customerId + "Customer Name: "+ this.firstName + " " +this.lastName + " Type: PERSONAL");
+		
+	}
+
+
+	@Override
+	public void printOrderList() {
+		for(Order o:orderList)
+		{
+			o.printOrder();
+		}
+		
+	}
+	
 
 }
