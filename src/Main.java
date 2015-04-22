@@ -1,7 +1,7 @@
 
 public class Main {
 public static void main(String args[])
-{
+{/*
 	Health h=new Health(2);
 	Other o=new Other(5);
 	Computer c=new Computer(1);
@@ -27,15 +27,16 @@ public static void main(String args[])
 	h.addProduct(h3);
 	
 	Stock s=new Stock();
-	s.addStock(p1, 3);
-	s.addStock(p2, 4);
-	s.addStock(h1, 500);
-	s.addStock(h2,10);
-	s.addStock(h3, 5);
+	s.addProduct(p1, 3);
+	s.addProduct(p2, 4);
+	s.addProduct(h1, 500);
+	s.addProduct(h2,10);
+	s.addProduct(h3, 5);
 	s.viewStock();
-	s.removeStock(p1, 1);
+	s.removeProduct(p1, 1);
 	s.viewStock();
 	
+	*/
 
 	}
 }

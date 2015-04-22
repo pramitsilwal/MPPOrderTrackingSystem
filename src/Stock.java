@@ -4,21 +4,31 @@ import java.util.HashMap;
 public class Stock {
 	HashMap<Product, Integer> stock=new HashMap<Product,Integer>();
 	
-	public void addStock(Product p, Integer qty)
+	public void addProduct(Product p, Integer qty)
 	{
 		stock.put(p, qty);
 	}
 	
-	public boolean removeStock(Product p, Integer removeQty )
+	public boolean removeProduct(Product p, Integer removeQty )
 	{
 		//stock.remove(p);
-		System.out.println("Deducting Product Qty");
+		//System.out.println("Deducting Product Qty");
 		if(stock.containsKey(p))
 		{
-			stock.put(p, stock.get(p)-removeQty);
-			return true;
+			Integer currentStock = stock.get(p);
+			if(removeQty > currentStock){
+				return false;
+			}
+			else{
+				stock.put(p, stock.get(p)-removeQty);			
+				return true;
+			}
 		}
 		return false;
+	}
+	
+	public boolean isProductListed(Product p){
+		return stock.containsKey(p);
 	}
 	
 	public void viewStock()

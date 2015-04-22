@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 
 public abstract class Customer {
 
@@ -7,6 +11,34 @@ public abstract class Customer {
 	protected String contactNumber;
 	protected String shippingAddress;
 	protected String billingAddress;
+	protected double points;
+	protected List<Order> orderList = new ArrayList<Order>();
+	protected CreditRating creditRating;
+	protected OrderProcessor orderProcessor;
+	
+	
+	public CreditRating getCreditRating() {
+		return creditRating;
+	}
+	public String getEntityName(){
+		return getName();
+	}
+	protected abstract String getName();
+	
+	public void addOrder(Order o){
+		orderList.add(o);
+	}
+	
+	public double getPoints() {
+		return points;
+	}
+	public void setPoints(double points) {
+		this.points = points;
+	}
+	public void addPoint(double points){
+		this.points += points;
+	}
+	
 	public int getCustomerId() {
 		return customerId;
 	}
@@ -38,5 +70,5 @@ public abstract class Customer {
 		this.billingAddress = billingAddress;
 	}
 	
-	public abstract void makeOrder();
+	public abstract void makeOrder(HashMap<Product, Integer> products, OrderType type);
 }

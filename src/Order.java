@@ -15,8 +15,12 @@ public class Order {
 		items = new ArrayList<OrderProduct>();
 	}
 	
-	public void addProduct(Product p, int quantity, Customer customer){
-		
+	public void addProduct(OrderProduct op){
+		items.add(op);
+	}
+	
+	public List<OrderProduct> getItems(){
+		return items;
 	}
 
 	public String getStatus() {
@@ -41,6 +45,16 @@ public class Order {
 
 	public void setDiscount(double discount) {
 		this.discount = discount;
+	}
+	
+	//update orderTotal and shipped status
+	public void finalize(){
+		boolean allProductsShipped = true;
+		for(OrderProduct item: items){
+			orderTotal+= item.getTotalProductPrice();
+			allProductsShipped = allProductsShipped && item.isShipped();
+		}
+		this.status = allProductsShipped ? SHIPPED : PENDING;
 	}
 	
 	

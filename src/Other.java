@@ -3,11 +3,11 @@ import java.util.List;
 
 
 public class Other extends ProductCategory {
-	private double point=0.25;
-	List<Product> product=new ArrayList<Product>();
-	public Other(int id)
+	private final double point=0.25;
+	public Other(int id, String name)
 	{
 		categoryId=id;
+		this.name = name;
 	}
 	
 	@Override
@@ -16,15 +16,4 @@ public class Other extends ProductCategory {
 		return this.point;
 	}
 	
-	public void addProduct(Product p)
-	{
-		product.add(p);
-	}
-	public void printProductList()
-	{
-		for(Product p:product)
-		{
-			p.printProduct();
-		}
-	}
 }

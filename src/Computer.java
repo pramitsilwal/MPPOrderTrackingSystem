@@ -5,10 +5,10 @@ import java.util.List;
 public class Computer extends ProductCategory {
 
 	private double point=2;
-	List<Product> product=new ArrayList<Product>();
-	public Computer(int id)
+	public Computer(int id, String name)
 	{
 		categoryId=id;
+		this.name = name;
 	}
 	
 	
@@ -18,16 +18,5 @@ public class Computer extends ProductCategory {
 		return this.point;
 	}
 	
-	public void addProduct(Product p)
-	{
-		product.add(p);
-	}
-	public void printProductList()
-	{
-		for(Product p:product)
-		{
-			p.printProduct();
-		}
-	}
 
 }

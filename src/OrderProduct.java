@@ -1,4 +1,4 @@
-import java.sql.Date;
+import java.util.Date;
 
 
 public class OrderProduct {
@@ -39,11 +39,11 @@ public class OrderProduct {
 		this.totalProductPrice = totalProductPrice;
 	}
 	
-	public OrderProduct(Product product, boolean shipped, Date shippingDate, int quantity, double productPrice) {
+	public OrderProduct(Product product, boolean shipped, Date date, int quantity, double productPrice) {
 		super();
 		this.product = product;
 		this.shipped = shipped;
-		this.shippingDate = shippingDate;
+		this.shippingDate = date;
 		this.quantity = quantity;
 		this.totalProductPrice = productPrice;
 	}	

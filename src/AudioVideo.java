@@ -3,11 +3,11 @@ import java.util.List;
 
 
 public class AudioVideo extends ProductCategory {
-	private double point=0.50;
-	List<Product> product=new ArrayList<Product>();
-	public AudioVideo(int id)
+	private final double point=0.50;
+	public AudioVideo(int id, String name)
 	{
 		categoryId=id;
+		this.name = name;
 	}
 	
 	
@@ -17,17 +17,5 @@ public class AudioVideo extends ProductCategory {
 		return this.point;
 	}
 	
-	public void addProduct(Product p)
-	{
-		product.add(p);
-	}
-	
-	public void printProductList()
-	{
-		for(Product p:product)
-		{
-			p.printProduct();
-		}
-	}
 	
 }

@@ -1,8 +1,14 @@
 
 public abstract class ProductCategory {
-int categoryId;
-public abstract double getPoint();
+	int categoryId;
+	protected String name;
+	public abstract double getPoint();
+	public int getCategoryId() {
+		return categoryId;
+	}
+	public String getName() {
+		return name;
+	}
+	
 
-public abstract void addProduct(Product p);
-public abstract void printProductList();
 }
