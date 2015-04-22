@@ -1,6 +1,6 @@
 
-public abstract class ProductCategory {
-	int categoryId;
+public enum ProductCategory {
+	/*int categoryId;
 	protected String name;
 	public abstract double getPoint();
 	public int getCategoryId() {
@@ -9,6 +9,8 @@ public abstract class ProductCategory {
 	public String getName() {
 		return name;
 	}
+	*/
+	COMPUTER,HEALTH, AUDIOVIDEO,OTHER;
+		
 	
-
 }

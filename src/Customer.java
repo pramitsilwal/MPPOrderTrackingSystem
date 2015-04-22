@@ -4,8 +4,6 @@ import java.util.List;
 
 
 public abstract class Customer {
-
-	protected static int CURRENT_ID = 1;
 	protected int customerId;
 	protected String email;
 	protected String contactNumber;
@@ -71,4 +69,5 @@ public abstract class Customer {
 	}
 	
 	public abstract void makeOrder(HashMap<Product, Integer> products, OrderType type);
+	public abstract void printCustomer();
 }

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-
+/*
 public class Other extends ProductCategory {
 	private final double point=0.25;
 	public Other(int id, String name)
@@ -16,4 +16,4 @@ public class Other extends ProductCategory {
 		return this.point;
 	}
 	
-}
+}*/

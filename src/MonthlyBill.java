@@ -7,8 +7,7 @@ public class MonthlyBill {
 	private List<Order> monthlyOrders;
 	private String entityName;
 	public MonthlyBill(int year, int month, List<Order> monthlyOrder,
-			String entityName) {
-		super();
+			String entityName) {		
 		this.year = year;
 		this.month = month;
 		this.monthlyOrders = monthlyOrder;
@@ -16,6 +15,15 @@ public class MonthlyBill {
 	}
 	public List<Order> getMonthlyOrders() {
 		return monthlyOrders;
+	}
+	
+	public void printMonthlyBill()
+	{
+		System.out.println("Year:"+this.year+"\nMonth:"+this.month);
+		for(Order o:monthlyOrders)
+		{
+			o.printOrder();
+		}
 	}
 	
 	

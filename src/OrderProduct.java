@@ -40,12 +40,18 @@ public class OrderProduct {
 	}
 	
 	public OrderProduct(Product product, boolean shipped, Date date, int quantity, double productPrice) {
-		super();
 		this.product = product;
 		this.shipped = shipped;
 		this.shippingDate = date;
 		this.quantity = quantity;
 		this.totalProductPrice = productPrice;
 	}	
-	
+	public String printOrderProduct()
+	{
+		return ("Product :"+product.getProductDesc()
+				+"\nShipped:"+this.shipped
+				+"\nShipping Date:"+this.shippingDate
+				+"\nQuantity:"+this.quantity
+				+"\nTotal Product Price:"+this.totalProductPrice);
+	}
 }

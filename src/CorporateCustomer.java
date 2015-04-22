@@ -20,7 +20,8 @@ public class CorporateCustomer extends Customer {
 			invoiceHistory.put(month, new MonthlyBill(2015,month, orderList,this.entityName));
 		}
 	}
-	public CorporateCustomer(String entityName, String contactName, String email, String contactNumber, String shippingAddress, String billingAddress, OrderProcessor orderProcessor, CreditRating rating, double creditLimit){
+	public CorporateCustomer(int customerId,String entityName, String contactName, String email, String contactNumber, String shippingAddress, String billingAddress, OrderProcessor orderProcessor, CreditRating rating, double creditLimit){
+		this.customerId=customerId;
 		this.entityName = entityName;
 		this.contactName = contactName;
 		this.email = email;
@@ -43,6 +44,19 @@ public class CorporateCustomer extends Customer {
 	}
 	public double getCreditLimit() {
 		return creditLimit;
+	}
+	@Override
+	public void printCustomer() {
+		System.out.println("Customer Id:"+this.customerId
+				+"\nCorporate Name:"+this.entityName
+				+"\nEmail:"+this.email
+				+"\nContact:"+this.contactNumber
+				+"\nShipping Address:"+this.shippingAddress
+				+"\nBilling Address:"+this.billingAddress
+				+"\nOrder Processor:"+this.orderProcessor
+				+"\nCredit Rating:"+this.creditRating
+				+"\nCredit Limit:"+this.creditLimit);
+		
 	}
 	
 	

@@ -47,6 +47,19 @@ public class Order {
 		this.discount = discount;
 	}
 	
+	public void printOrder()
+	{
+		System.out.println("Order Type:"+this.orderType
+				+"Status:"+this.status
+				+"Total:"+this.orderTotal
+				+"Discount:"+this.discount);
+		System.out.println("Items");
+		for(OrderProduct op:items)
+		{
+			System.out.println(op.printOrderProduct());
+		}
+	}
+	
 	//update orderTotal and shipped status
 	public void finalize(){
 		boolean allProductsShipped = true;

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-
+/*
 public class Computer extends ProductCategory {
 
 	private double point=2;
@@ -19,4 +19,4 @@ public class Computer extends ProductCategory {
 	}
 	
 
-}
+}*/

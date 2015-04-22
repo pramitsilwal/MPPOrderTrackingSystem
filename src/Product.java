@@ -5,6 +5,7 @@ public class Product {
 	private double price;
 	private ProductCategory category;
 	
+	
 	public Product(int productNumber, String productDesc, double price, ProductCategory cat)
 	{
 		this.productNumber=productNumber;
@@ -45,12 +46,25 @@ public class Product {
 	
 	public void printProduct()
 	{
-		System.out.println("Product Number :"+ this.productNumber+
-				"\nProduct Description :"
-				+this.productDesc+"\nPrice :$"+this.price + "\nCategory: "+ this.category.name);
+		System.out.println("Product Number :"+ this.productNumber
+				+"\nProduct Description :"+this.productDesc
+				+"\nPrice :$"+this.price 
+				+ "\nCategory: "+ this.category);
 	}
 	
 	public double getPoint(){
-		return category.getPoint();
+		switch(category)
+		{
+		case COMPUTER:
+			return 2;
+		case HEALTH:
+			return 1;
+		case AUDIOVIDEO:
+			return 0.50;
+		case OTHER:
+			return 0.25;
+		default:
+			return 0;
+		}
 	}
 }

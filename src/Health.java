@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
+/*
 public class Health extends ProductCategory {
 
 	private final double point=1;
@@ -22,4 +22,4 @@ public class Health extends ProductCategory {
 
 	
 
-}
+}*/

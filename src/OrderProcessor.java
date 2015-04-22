@@ -17,7 +17,7 @@ public class OrderProcessor {
 			case POOR :
 				placeOrderByType(products, customer, true);
 				break;
-			case GOOD :
+			case GOOD:
 				if(type == OrderType.PREPAID){
 					placeOrderByType(products, customer, true);
 				}
