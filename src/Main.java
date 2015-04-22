@@ -31,23 +31,28 @@ public static void main(String args[])
 	
 	
 	
-	Stock s=new Stock();
-	s.addProduct(o1, 3);
-	s.addProduct(o2, 4);
-	s.addProduct(o3, 10);
-	s.addProduct(h1, 500);
-	s.addProduct(h2,10);
-	s.addProduct(h3, 5);
-	s.addProduct(c1, 10);
-	s.addProduct(c2, 15);
-	s.addProduct(c3, 17);
-	s.addProduct(a1, 25);
-	s.addProduct(a2, 5);
-	s.addProduct(a3, 2);
+	Stock stock=new Stock();
+	stock.addProduct(o1, 3);
+	stock.addProduct(o2, 4);
+	stock.addProduct(o3, 10);
+	stock.addProduct(h1, 500);
+	stock.addProduct(h2,10);
+	stock.addProduct(h3, 5);
+	stock.addProduct(c1, 10);
+	stock.addProduct(c2, 15);
+	stock.addProduct(c3, 17);
+	stock.addProduct(a1, 25);
+	stock.addProduct(a2, 5);
+	stock.addProduct(a3, 2);
 	
-	s.viewStock();
+	stock.viewStock();
 	//s.removeProduct(p1, 1);
 	//s.viewStock();
+	OrderProcessor orderProcessor=new OrderProcessor(stock);
+	
+	Customer c=new CorporateCustomer(1,"Dreams & ideas", "Mr John Smith", "xyz@dreamsandideas.com", "6149852365", "1000 N 4th Street",
+			"1000 N 4th Street", orderProcessor, CreditRating.GOOD, 50);
+	
 	
 	
 
